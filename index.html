@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div class="container col-md-6 mt-5" id="formcase">
+    <div class="row">
+      <div class="col">
+        <p class="text-center fs-4 fw-bold mt-3 text-black">Control de Gastos</p>
+        <div class="row">
+          <div class="col-md-6">
+            <form id="formLoad">
+              <div class="mb-3">
+                <label for="dateInput" class="form-label">Fecha</label>
+                <input type="datetime-local" class="form-control" id="dateInput" aria-describedby="emailHelp">
+              </div>
+              <div class="mb-3">
+                <select class="form-select" aria-label="Default select example" id="categorySelect" required>
+                  <option selected>Seleccione Categoria</option>
+                  <option value="1">Alimento</option>
+                  <option value="2">Entretenimiento</option>
+                  <option value="3">Transporte</option>
+                  <option value="4">Sin Categoria</option>
+                </select>
+                <label for="moneyExpend" class="form-label">Monto</label>
+                <input type="number" min="0" class="form-control" id="moneyExpend">
+              </div>
+              <div class="mb-3">
+                <label for="descriptionExpend" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" id="descriptionExpend" aria-describedby="descriptionExpend">
+              </div>
+              <button type="submit" class="btn btn-success mb-3">Registrar</button>
+
+            </form>
+            <button class="btn btn-alert mb-3" id="verAnteriores">Ver Gastos</button>
+          </div>
+          <div class="col-md-6 mt-5 mb-2">
+            <img src="/img/purple-iso-hero-accounting3.png" class="img-fluid" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- start capture png -->
+  <div id="content" class="hide">
+
+    <!-- display values -->
+    <div class="col fw-bold fs-5 text-center  mt-4 mb-2">Resumen</div>
+    <div class="container col-xs-12 col-md-6 ">
+      <div class="row">
+        <ul class="text-left fs-6 list-group" id="display">
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center text-black fs-4 fw-bolder mx-auto mt-4 mb-3" id="Gastos"></div>
+    <div class="container mx-auto col-xs-8 col-xl-12">
+      <div class="row">
+        <div class="col">
+          <canvas id="miGrafico"></canvas>
+        </div>
+        <div class="col mt-2">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+    <!-- end capture png -->
+  </div>
+
+
+  <div class="container col-6 mt-5">
+    <div class="row">
+      <button class="btn btn-success mt-4 mb-4 hide" id="captureScreenshot">Capturar y Guardar</button>
+      <button class="btn btn-danger mt-2 mb-4 hide" id="clear">Eliminar Datos</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
